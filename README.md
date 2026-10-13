@@ -125,7 +125,3 @@ Works out of the box with **no token and no setup** (`Config.AvatarSource = 'cfx
 - Fonts bundled: **Saira Extra Condensed** and **Rajdhani** (SIL Open Font License, see `html/fonts/`).
 
 
-<img width="720" height="760" alt="disconnected" src="https://github.com/user-attachments/assets/e4bc470b-cb81-4744-b400-a6db328c2d94" />
-<img width="1600" height="900" alt="banner" src="https://github.com/user-attachments/assets/2bb17574-4131-49f3-aae9-8fe32eaea2b9" />
-<img width="720" height="1144" alt="online" src="https://github.com/user-attachments/assets/3cc0d615-ae43-4193-9be5-cb0bb0648ad7" />
-
