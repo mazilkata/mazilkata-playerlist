@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mazilkata-playerlist</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="playerlist-viewport" class="playerlist-viewport" style="display: none;">
+    <div class="playerlist-panel">
+      <!-- Panel Content Stack -->
+      <div class="panel-content">
+        <!-- Header -->
+        <div class="playerlist-header">
+          <div class="header-titles">
+            <h1 id="header-title" class="header-main-title">PLAYER LIST</h1>
+            <div id="header-subtitle" class="header-subtitle">ONLINE</div>
+          </div>
+          <div class="header-divider"></div>
+        </div>
+
+        <!-- Dual Stat Widgets -->
+        <div class="stats-container">
+          <!-- Total Online Stat Box -->
+          <div class="stat-card">
+            <span id="stat-total-label" class="stat-label">PLAYER LIST</span>
+            <div class="stat-number-wrapper">
+              <span id="stat-total-number" class="stat-number">0</span>
+              <div class="stat-accent-bar"></div>
+            </div>
+          </div>
+
+          <!-- Players in Area Stat Box -->
+          <div class="stat-card">
+            <span id="stat-area-label" class="stat-label">PLAYERS IN AREA</span>
+            <div class="stat-number-wrapper">
+              <span id="stat-area-number" class="stat-number">0</span>
+              <div class="stat-accent-bar"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Bar -->
+        <div class="tab-bar-container">
+          <div id="btn-key-q" class="key-badge" title="Press Q to switch tab">Q</div>
+          <button type="button" id="tab-online" class="tab-btn active">ONLINE</button>
+          <button type="button" id="tab-disconnected" class="tab-btn">DISCONNECTED</button>
+          <div id="btn-key-e" class="key-badge" title="Press E to switch tab">E</div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar-wrapper">
+          <div class="search-input-container">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="11" cy="11" r="7"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="search-input" class="search-input" placeholder="Search players by name or ID..." spellcheck="false" autocomplete="off">
+            <button type="button" id="search-clear-btn" class="search-clear-btn" style="display: none;" title="Clear search">&times;</button>
+          </div>
+        </div>
+
+        <!-- Scrollable Player List -->
+        <div id="player-list-scrollable" class="player-list-scrollable">
+          <!-- Populated dynamically via script.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

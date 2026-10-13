@@ -1,0 +1,830 @@
+@font-face {
+  font-family: 'Saira Extra Condensed';
+  src: url('fonts/SairaExtraCondensed-600.woff2') format('woff2');
+  font-weight: 500 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Saira Extra Condensed';
+  src: url('fonts/SairaExtraCondensed-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Saira Extra Condensed';
+  src: url('fonts/SairaExtraCondensed-800.woff2') format('woff2');
+  font-weight: 800 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('fonts/Rajdhani-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('fonts/Rajdhani-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('fonts/Rajdhani-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+:root {
+  --color-bg-panel: #090a0f;
+  --color-cyan: #00e5ff;
+  --color-teal-start: #0e4c59;
+  --color-teal-end: #09343d;
+  --color-yellow: #f5c518;
+  --color-text-white: #ffffff;
+  --color-text-muted: #727a8c;
+  --color-disco-border: #ef4444;
+  --color-disco-bg-start: #3d171b;
+  --color-disco-bg-end: #291013;
+  --font-family: 'Saira Extra Condensed', 'Rajdhani', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  font-family: var(--font-family);
+}
+
+/* Full Viewport Container docked flush to the right */
+.playerlist-viewport {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+/* Main Player List Panel - Made comfortably wider & crisp */
+.playerlist-panel {
+  pointer-events: auto;
+  position: relative;
+  width: 360px;
+  height: 100vh;
+  background: linear-gradient(180deg, #0c0e14 0%, #08090d 100%);
+  border-left: 1px solid #14161f;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideInRight 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Panel Content Stack */
+.panel-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 18px 16px;
+}
+
+/* Header */
+.playerlist-header {
+  margin-bottom: 12px;
+}
+
+.header-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-main-title {
+  font-size: 30px;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.header-subtitle {
+  font-size: 12px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.8px;
+  color: #8b929e;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+.header-divider {
+  width: 100%;
+  height: 1px;
+  background: #181b24;
+  margin-top: 10px;
+}
+
+/* Dual Stat Cards */
+.stats-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.stat-card {
+  background: #0d0f16;
+  border: 1px solid #181b24;
+  border-radius: 3px;
+  padding: 9px 8px 8px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.6px;
+  color: #6c7382;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.stat-number-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.stat-number {
+  font-size: 34px;
+  font-style: italic;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.stat-accent-bar {
+  width: 24px;
+  height: 2.5px;
+  background: #00e5ff;
+  border-radius: 1px;
+  margin-top: 4px;
+}
+
+/* Tab Bar */
+.tab-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.key-badge {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0d0f16;
+  border: 1px solid #1c202a;
+  border-radius: 3px;
+  color: #ffffff;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+
+.key-badge:hover {
+  border-color: #00e5ff;
+  color: #00e5ff;
+}
+
+.tab-btn {
+  flex: 1;
+  height: 32px;
+  border-radius: 3px;
+  border: 1px solid #1c202a;
+  background: #0d0f16;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  color: #727a8c;
+  transition: all 0.15s ease;
+}
+
+.tab-btn:hover {
+  color: #ffffff;
+  background: #121520;
+}
+
+.tab-btn.active {
+  background: #00e5ff;
+  color: #050811;
+  border: none;
+  font-weight: 900;
+}
+
+/* Search Bar (Sleek & Proportional) */
+.search-bar-wrapper {
+  margin-bottom: 10px;
+}
+
+.search-input-container {
+  display: flex;
+  align-items: center;
+  background: #0b0c12;
+  border: 1px solid #181b24;
+  border-radius: 3px;
+  padding: 5px 10px;
+  height: 30px;
+  transition: border-color 0.2s;
+}
+
+.search-input-container:focus-within {
+  border-color: #00e5ff;
+}
+
+.search-icon {
+  width: 14px;
+  height: 14px;
+  color: #4f5666;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13px;
+  font-style: italic;
+  width: 100%;
+}
+
+.search-input::placeholder {
+  color: #444a57;
+  font-style: italic;
+}
+
+.search-clear-btn {
+  background: transparent;
+  border: none;
+  color: #727a8c;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0 3px;
+  line-height: 1;
+}
+
+.search-clear-btn:hover {
+  color: #ffffff;
+}
+
+/* Player List Container */
+.player-list-scrollable {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+/* Custom Scrollbar */
+.player-list-scrollable::-webkit-scrollbar {
+  width: 4px;
+}
+
+.player-list-scrollable::-webkit-scrollbar-track {
+  background: rgba(12, 14, 20, 0.4);
+}
+
+.player-list-scrollable::-webkit-scrollbar-thumb {
+  background: #11444f;
+  border-radius: 2px;
+}
+
+.player-list-scrollable::-webkit-scrollbar-thumb:hover {
+  background: #00e5ff;
+}
+
+/* Player Row - Scaled up, stable hover without jitter */
+.player-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, var(--color-teal-start) 0%, var(--color-teal-end) 100%);
+  border: 1px solid var(--color-cyan);
+  border-radius: 3px;
+  padding: 7px 11px;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  /* Smooth color/brightness transition without geometric transform jitter */
+  transition: background 0.15s ease, border-color 0.15s ease, filter 0.15s ease;
+}
+
+/* Clean, bug-free hover state without position shift */
+.player-row:hover {
+  filter: brightness(1.12);
+  border-color: #38bdf8;
+  background: linear-gradient(90deg, #115766 0%, #0c3e49 100%);
+}
+
+/* Talking Pulse */
+.player-row.is-talking {
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.45);
+}
+
+/* Left Avatar */
+.player-avatar-square {
+  width: 36px;
+  height: 36px;
+  background: #061e24;
+  border: 1px solid #0c424e;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.player-avatar-square {
+  overflow: hidden;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.avatar-user-icon {
+  width: 19px;
+  height: 19px;
+  color: #00e5ff;
+}
+
+/* Player Details */
+.player-details {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.player-name-line {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  overflow: hidden;
+  /* room for the italic slant + descenders so letters are never cut */
+  padding: 2px 6px 2px 0;
+}
+
+.player-name {
+  color: #ffffff;
+  font-size: 16.5px;
+  font-weight: 800;
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.3px;
+  line-height: 1.25;
+  /* synthetic italic leans right: add space on the right so the last letter is not clipped */
+  padding-right: 5px;
+  min-width: 0;
+}
+
+/* Voice Equalizer Animated Wave Bars */
+.talking-indicator {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 11px;
+  margin-left: 2px;
+}
+
+.voice-bar {
+  width: 2px;
+  background: #00e5ff;
+  border-radius: 1px;
+  animation: soundWave 0.7s infinite alternate ease-in-out;
+}
+
+.bar-1 { height: 5px; animation-delay: 0.1s; }
+.bar-2 { height: 11px; animation-delay: 0.25s; }
+.bar-3 { height: 7px; animation-delay: 0.4s; }
+
+@keyframes soundWave {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(1); }
+}
+
+.player-sub-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+.player-slot-text {
+  font-size: 12.5px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--color-yellow);
+  letter-spacing: 0.3px;
+  flex-shrink: 0;
+}
+
+.slot-number {
+  font-weight: 800;
+}
+
+/* Right Ping Badge */
+.player-ping-badge {
+  background: #07252d;
+  border: 1px solid #00e5ff;
+  border-radius: 3px;
+  padding: 3px 9px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ping-val {
+  color: #00e5ff;
+  font-size: 12.5px;
+  font-weight: 800;
+  font-style: italic;
+  line-height: 1;
+}
+
+/* Disconnected Rows */
+.disconnected-row {
+  background: linear-gradient(90deg, var(--color-disco-bg-start) 0%, var(--color-disco-bg-end) 100%);
+  border: 1px solid var(--color-disco-border);
+}
+
+.disconnected-row:hover {
+  filter: brightness(1.12);
+  border-color: #f87171;
+  background: linear-gradient(90deg, #4d1d23 0%, #351419 100%);
+}
+
+.disconnected-avatar {
+  background: #1c0b0d;
+  border-color: #4a191e;
+}
+
+.disconnected-avatar .avatar-user-icon {
+  color: #ef4444;
+}
+
+.disconnected-name {
+  color: #e2e8f0;
+}
+
+.disco-time-badge {
+  background: #240c0f;
+  border: 1px solid #ef4444;
+  border-radius: 3px;
+  padding: 3px 9px;
+  flex-shrink: 0;
+}
+
+.disco-time-text {
+  color: #fca5a5;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* Empty State */
+.empty-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 12px;
+  gap: 10px;
+  color: var(--color-text-muted);
+}
+
+.empty-icon {
+  width: 30px;
+  height: 30px;
+  opacity: 0.4;
+}
+
+.empty-text {
+  font-size: 13px;
+  font-style: italic;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Compact layout (sized to match the reference design)
+   ========================================================================== */
+.playerlist-panel {
+  background: linear-gradient(180deg, #0b1215 0%, #05090c 10%, #04080b 100%);
+  border-left: 1px solid #0e151a;
+}
+
+.panel-content {
+  padding: 12px;
+}
+
+.playerlist-header {
+  margin-bottom: 10px;
+}
+
+.header-main-title {
+  font-size: 25px;
+  letter-spacing: 0.3px;
+}
+
+.header-subtitle {
+  font-size: 9px;
+  margin-top: 2px;
+  letter-spacing: 0.6px;
+  color: #e2e5e9;
+}
+
+.header-divider {
+  margin-top: 6px;
+  background: #3a4147;
+}
+
+.stats-container {
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.stat-card {
+  background: #151b1f;
+  border: 1px solid #232a2f;
+  padding: 5px 6px 6px 6px;
+}
+
+.stat-label {
+  font-size: 8px;
+  letter-spacing: 0.4px;
+  color: #9aa1a8;
+}
+
+.stat-number {
+  font-size: 24px;
+}
+
+.stat-accent-bar {
+  width: 22px;
+  height: 3px;
+  margin-top: 3px;
+}
+
+.tab-bar-container {
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.key-badge {
+  width: 21px;
+  height: 23px;
+  background: #f3f5f6;
+  color: #0b0e14;
+  border: none;
+  font-size: 10px;
+}
+
+.key-badge:hover {
+  background: #00e5ff;
+  color: #050811;
+}
+
+.tab-btn {
+  height: 23px;
+  font-size: 10.5px;
+  background: #0e1419;
+  border: 1px solid #1a2127;
+  color: #a4a8ab;
+}
+
+.tab-btn.active {
+  background: #10c8e0;
+  color: #050811;
+  border: none;
+}
+
+.search-bar-wrapper {
+  margin-bottom: 8px;
+}
+
+.player-list-scrollable {
+  gap: 6px;
+}
+
+.player-row {
+  height: 34px;
+  padding: 0 8px;
+  gap: 8px;
+}
+
+.player-row:not(.disconnected-row) {
+  background: linear-gradient(90deg, #066a75 0%, #0a3a43 55%, #0b2a30 100%);
+}
+
+.player-row:not(.disconnected-row):hover {
+  background: linear-gradient(90deg, #0a7683 0%, #0d4650 55%, #0e3239 100%);
+}
+
+.player-avatar-square {
+  width: 22px;
+  height: 22px;
+}
+
+.avatar-user-icon {
+  width: 13px;
+  height: 13px;
+}
+
+.player-name {
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.player-name-line {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.player-sub-line {
+  margin-top: 0;
+}
+
+.player-slot-text {
+  font-size: 9px;
+}
+
+.player-ping-badge,
+.disco-time-badge {
+  padding: 2px 6px;
+}
+
+.ping-val {
+  font-size: 9.5px;
+}
+
+.disco-time-text {
+  font-size: 9.5px;
+}
+
+/* ---- Typography + shape tuning (condensed font, square corners) ---- */
+.header-main-title { font-size: 29px; letter-spacing: 0.2px; }
+.header-subtitle   { font-size: 11px; }
+
+.stat-card {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: #151b1f;
+  overflow: hidden;
+}
+.stat-label {
+  width: 100%;
+  font-size: 11.5px;
+  letter-spacing: 0.3px;
+  color: #aeb4ba;
+  background: #1f252a;
+  padding: 3px 0 2px 0;
+}
+.stat-number-wrapper { margin-top: 0; padding: 4px 0 6px 0; }
+.stat-number { font-size: 27px; }
+
+.key-badge,
+.tab-btn { border-radius: 0; }
+.key-badge { font-size: 12px; }
+.tab-btn { font-size: 12px; letter-spacing: 0.5px; border: none; background: #14191d; }
+.tab-btn:hover { background: #1a2127; }
+
+.search-bar-wrapper { display: none; }
+
+.player-row { border-radius: 2px; }
+.player-row:not(.disconnected-row) { border-color: #0a8797; }
+.player-row:not(.disconnected-row):hover { border-color: #19c4d8; }
+
+.player-avatar-square:not(.disconnected-avatar) {
+  background: #19bcd3;
+  border: none;
+  border-radius: 2px;
+}
+.player-avatar-square:not(.disconnected-avatar) .avatar-user-icon { color: #062a32; }
+
+.player-name { font-size: 12.5px; }
+.ping-val, .disco-time-text { font-size: 10.5px; }
+
+/* ---- Vertical rhythm ---- */
+body { text-rendering: geometricPrecision; -webkit-font-smoothing: antialiased; }
+.playerlist-header { margin-bottom: 9px; }
+.header-main-title { line-height: 1; }
+.header-subtitle { line-height: 1; margin-top: 4px; }
+.header-divider { margin-top: 5px; }
+.stat-label { line-height: 1.15; padding: 2px 0 1px 0; }
+.stat-number-wrapper { padding: 3px 0 5px 0; }
+.stat-number { font-size: 24px; }
+.stat-accent-bar { margin-top: 2px; }
+
+/* ---- Final nudges ---- */
+.panel-content { padding-top: 9px; }
+.player-name { line-height: 1.1; }
+.player-name-line { padding-top: 0; padding-bottom: 0; }
+.tab-btn.active:hover { background: #10c8e0; color: #050811; }
+.disco-time-text { font-size: 9.5px; }
+
+/* ==========================================================================
+   Readability pass: larger text and controls
+   ========================================================================== */
+.header-main-title { font-size: 34px; }
+.header-subtitle   { font-size: 14px; margin-top: 5px; }
+
+.stat-label  { font-size: 14px; padding: 3px 0 2px 0; }
+.stat-number { font-size: 32px; }
+.stat-accent-bar { width: 26px; height: 3px; }
+
+.key-badge { width: 27px; height: 32px; font-size: 15px; }
+.tab-btn   { height: 32px; font-size: 15.5px; letter-spacing: 0.6px; }
+
+.player-list-scrollable { gap: 8px; }
+.player-row { height: 52px; padding: 0 10px; gap: 10px; }
+.player-avatar-square { width: 38px; height: 38px; }
+.avatar-user-icon { width: 22px; height: 22px; }
+
+.player-name { font-size: 20px; line-height: 1.1; letter-spacing: 0.4px; }
+.player-slot-text { font-size: 14px; }
+.player-ping-badge, .disco-time-badge { padding: 3px 8px; }
+.ping-val { font-size: 14px; }
+.disco-time-text { font-size: 13px; }
+
+.search-input { font-size: 15px; }
+.search-input-container { height: 34px; }
+.empty-text { font-size: 15px; }
+
+/* Rows must never shrink when the list fills up (the list scrolls instead) */
+.player-row { flex-shrink: 0; }
+.player-list-scrollable { min-height: 0; }
