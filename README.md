@@ -89,9 +89,6 @@ mazilkata-playerlist/
 
 Works out of the box with **no token and no setup** (`Config.AvatarSource = 'cfx'`): the player's Cfx.re (FiveM forum) profile picture is shown, resolved from their `fivem:` identifier with the same public endpoint txAdmin uses. This endpoint is unofficial; if it ever changes, rows simply fall back to the default icon.
 
-Optional Discord avatars (`'discord'` or `'auto'`) need a bot token from https://discord.com/developers/applications. **Never commit the token to GitHub**, put it in your private `server.cfg`:
-```cfg
-set mazilkata_discord_token "YOUR_BOT_TOKEN"
 ```
 `Config.ShowAvatarsTo = 'admins'` hides avatars from normal players (links can reveal usernames / Discord IDs).
 
