@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="previews/banner.png" alt="mazilkata-playerlist - NPV Inspired PlayerList" width="100%">
+  <img src="https://github.com/user-attachments/assets/2bb17574-4131-49f3-aae9-8fe32eaea2b9" alt="mazilkata-playerlist - NPV Inspired PlayerList" width="100%">
 </p>
 
 # mazilkata-playerlist
@@ -7,9 +7,9 @@
 **NPV Inspired PlayerList** for FiveM by **Mazilkata Development**. A fast, clean player list menu with profile pictures, live ping, proximity counts, 3D head IDs and speaking highlights. Pure **HTML / CSS / JS** NUI (no build step) and a multi-framework bridge for **QBox, QBCore, ESX and Standalone**.
 
 <p align="center">
-  <img src="previews/online.png" alt="Online tab" width="340">
+  <img src="https://github.com/user-attachments/assets/3cc0d615-ae43-4193-9be5-cb0bb0648ad7" alt="Online tab" width="340">
   &nbsp;&nbsp;
-  <img src="previews/disconnected.png" alt="Disconnected tab" width="340">
+  <img src="https://github.com/user-attachments/assets/e4bc470b-cb81-4744-b400-a6db328c2d94" alt="Disconnected tab" width="340">
 </p>
 
 ---
