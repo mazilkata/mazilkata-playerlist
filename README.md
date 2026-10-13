@@ -42,7 +42,6 @@
 mazilkata-playerlist/
 ├── fxmanifest.lua          # Resource manifest and file declarations
 ├── LICENSE                 # Void Development License
-├── previews/               # Images used in this README
 ├── config.lua              # Complete resource configuration
 ├── locales/
 │   ├── en.lua              # English translations
