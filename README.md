@@ -121,7 +121,7 @@ Works out of the box with **no token and no setup** (`Config.AvatarSource = 'cfx
 
 ## 📜 Credits & License
 - Developed by **Mazilkata Development** for the FiveM Community.
-- Licensed under the **Void Development License** (see `LICENSE`).
+- Licensed under the **Mazilkata Development License** (see `LICENSE`).
 - Fonts bundled: **Saira Extra Condensed** and **Rajdhani** (SIL Open Font License, see `html/fonts/`).
 
 
